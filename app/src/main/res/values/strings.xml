@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">TestApp</string>
+    <string name="main_page">Main</string>
+    <string name="porters">Porters</string>
+    <string name="carriers">Carriers</string>
+    <string name="workers">Workers</string>
+
+    <string name="no_info">There is no info yet</string>
+    <string name="punctuality">Punctuality</string>
+    <string name="accuracy">Accuracy</string>
+    <string name="orders_done">Orders done</string>
+    <string name="from">from</string>
+    <string name="work_schedule">Work schedule</string>
+    <string name="working_days">Working days</string>
+    <string name="order">Order</string>
+
+
+    <string-array name="daysOfWeek">
+        <item>Mon</item>
+        <item>Tue</item>
+        <item>Wed</item>
+        <item>Thu</item>
+        <item>Fri</item>
+        <item>Sat</item>
+        <item>Sun</item>
+    </string-array>
+</resources>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="item"
+            type="com.example.testapp.models.ServicesModel" />
+    </data>
+
+        <RelativeLayout
+            android:id="@+id/price_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/price_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_small"
+                android:text="@{item.label}"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                tools:text="Price per time" />
+
+            <TextView
+                android:id="@+id/price_amount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_margin="@dimen/margin_small"
+                android:text="@{item.number + ` грн`}"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                tools:text="20 grn" />
+
+        </RelativeLayout>
+
+</layout>

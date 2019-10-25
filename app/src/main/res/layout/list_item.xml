@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="item"
+            type="com.example.testapp.models.EmployeeModel" />
+        <import type="android.view.View" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_normal">
+
+        <ImageView
+            android:id="@+id/arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/ic_down_arrow" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/avatar_image"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_below="@id/arrow" />
+
+        <LinearLayout
+            android:id="@+id/info_linear_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/avatar_image"
+            android:layout_marginStart="@dimen/margin_normal"
+            android:layout_marginLeft="@dimen/margin_normal"
+            android:layout_toEndOf="@id/avatar_image"
+            android:layout_toRightOf="@id/avatar_image"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{item.name}"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                tools:text="Name" />
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/punctuality_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/punctuality"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+
+                <RatingBar
+                    android:id="@+id/punctuality_rating"
+                    style="@style/Widget.AppCompat.RatingBar.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/punctuality_text_view"
+                    android:layout_alignStart="@id/punctuality_text_view"
+                    android:layout_alignLeft="@id/punctuality_text_view"
+                    android:isIndicator="true"
+                    android:numStars="5"
+                    android:rating="@{item.ratingPunctuality}" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/punctuality_rating"
+                    android:layout_marginStart="@dimen/margin_small"
+                    android:layout_marginLeft="@dimen/margin_small"
+                    android:layout_toEndOf="@id/punctuality_rating"
+                    android:layout_toRightOf="@id/punctuality_rating"
+                    android:text="@{String.valueOf(item.ratingPunctuality)}"
+                    tools:text="5.0" />
+
+                <TextView
+                    android:id="@+id/accuracy_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/punctuality_text_view"
+                    android:layout_marginStart="72dp"
+                    android:layout_marginLeft="72dp"
+                    android:layout_toEndOf="@id/punctuality_text_view"
+                    android:layout_toRightOf="@id/punctuality_text_view"
+                    android:text="@string/accuracy"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+
+                <RatingBar
+                    android:id="@+id/accuracy_rating"
+                    style="@style/Widget.AppCompat.RatingBar.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/accuracy_text_view"
+                    android:layout_alignStart="@id/accuracy_text_view"
+                    android:layout_alignLeft="@id/accuracy_text_view"
+                    android:isIndicator="true"
+                    android:numStars="5"
+                    android:rating="@{item.ratingSpeed}"/>
+
+                <TextView
+                    android:id="@+id/accuracy_rating_amount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/accuracy_rating"
+                    android:layout_marginStart="@dimen/margin_small"
+                    android:layout_marginLeft="@dimen/margin_small"
+                    android:layout_toEndOf="@id/accuracy_rating"
+                    android:layout_toRightOf="@id/accuracy_rating"
+                    android:text="@{String.valueOf(item.ratingSpeed)}"
+                    tools:text="5.0" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="@dimen/margin_small"
+                android:layout_marginBottom="@dimen/margin_small"
+                android:background="#A4A4A4"
+                android:textColor="?android:attr/textColorPrimary" />
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/orders_done"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/group"
+                    android:drawablePadding="@dimen/margin_small"
+                    android:text="@string/orders_done"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_small"
+                    android:layout_marginLeft="@dimen/margin_small"
+                    android:layout_toEndOf="@id/orders_done"
+                    android:layout_toRightOf="@id/orders_done"
+                    android:text="@{item.numberOfOrdersComplete + `@string/from` + item.numberOfOrders}"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textStyle="bold"
+                    tools:text="1 from 1" />
+
+                <TextView
+                    android:id="@+id/work_schedule"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/orders_done"
+                    android:drawableLeft="@drawable/group_62x"
+                    android:drawablePadding="@dimen/margin_small"
+                    android:text="@string/work_schedule"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/orders_done"
+                    android:layout_marginStart="@dimen/margin_small"
+                    android:layout_marginLeft="@dimen/margin_small"
+                    android:layout_toEndOf="@id/work_schedule"
+                    android:layout_toRightOf="@id/work_schedule"
+                    android:text="@{item.workSchedule.startTime + ` - ` + item.workSchedule.endTime}"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textStyle="bold"
+                    tools:text="08:00 - 21:00" />
+
+                <TextView
+                    android:id="@+id/working_days"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/work_schedule"
+                    android:drawableLeft="@drawable/strength"
+                    android:drawablePadding="@dimen/margin_small"
+                    android:text="@string/working_days"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/work_schedule"
+                    android:layout_marginStart="@dimen/margin_small"
+                    android:layout_marginLeft="@dimen/margin_small"
+                    android:layout_toEndOf="@id/working_days"
+                    android:layout_toRightOf="@id/working_days"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textStyle="bold"
+                    tools:text="Mon Tue Wed Thu" />
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+        <ListView
+            android:id="@+id/services_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/info_linear_layout"
+            android:layout_alignStart="@id/avatar_image"
+            android:layout_alignLeft="@id/avatar_image"
+            android:layout_margin="@dimen/margin_small"
+            android:isScrollContainer="false"
+            android:visibility="@{item.servicesVisibility ? View.VISIBLE : View.GONE}"
+            tools:listitem="@layout/services_list_item"
+            tools:visibility="visible" />
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/services_info"
+            android:layout_marginTop="@dimen/margin_normal"
+            android:background="@drawable/round_shape_button"
+            android:padding="8dp"
+            android:text="@string/order"
+            android:textAllCaps="true"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="#ffffff"/>
+
+    </RelativeLayout>
+
+</layout>

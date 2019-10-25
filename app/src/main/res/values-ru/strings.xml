@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">TestApp</string>
+    <string name="accuracy">Аккуратность</string>
+    <string name="carriers">Перевозчики</string>
+    <string name="from">из</string>
+    <string name="main_page">Главная</string>
+    <string name="no_info">Информации нет</string>
+    <string name="order">Заказать</string>
+    <string name="orders_done">Выполнено заказов</string>
+    <string name="porters">Грузчики</string>
+    <string name="punctuality">Пунктуальность</string>
+    <string name="work_schedule">График работы</string>
+    <string name="workers">Строители</string>
+    <string name="working_days">Рабочие дни</string>
+</resources>
